@@ -8,7 +8,21 @@
 # 4 --> 0 (4 уже одна цифра, а значит мы проделали 0 итераций)
 
 def multiplication_chain(num):
-    # Здесь нужно написать код
+    def compare_num(num):  # вспомогательная функция для перемножения разрядов числа - облегчает отладку
+        new_num = 1
+        while True:
+            new_num *= num % 10
+            num = num // 10
+            if num == 0:
+                break
+        return new_num
+
+    count_multy = 0  # число итераций
+    while True:
+        if num // 10 == 0:
+            break
+        num = compare_num(num)
+        count_multy += 1
     return count_multy
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
