@@ -3,7 +3,13 @@
 # [1, 0, 1, 2, 0, 1, 3]  => [1, 1, 2, 1, 3, 0, 0]
 
 def move_zeros(lst):
-    # Здесь нужно написать код
+    keep_index = 0  # переменная для хранения следующей доступной позиции
+    for x in lst:
+        if x != 0:
+            lst[keep_index] = x
+            keep_index += 1
+    for i in range(keep_index, len(lst)):
+        lst[i] = 0
     return lst
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
