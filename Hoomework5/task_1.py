@@ -7,7 +7,15 @@
 
 
 def letter_stat(our_str):
-    # Здесь нужно написать код
+    """
+        Преобразование строк в словари
+        :param our_str: строка для преобразования <str>
+        :return: словарь, созданный из строки <dict>
+        """
+    letters_dict = {}  # Создаем пустой словарь
+    for letter in our_str:
+        if letter not in letters_dict:
+            letters_dict[letter] = our_str.count(letter)
     return letters_dict
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

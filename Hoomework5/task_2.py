@@ -7,7 +7,17 @@
 
 
 def repeats(our_str):
-    # Здесь нужно написать код
+    """
+        Создаем из старой строки новую, с подчетов повторений символов в старой строке
+        :param our_str: строка <str>
+        :return: новая строка с подчетом повторения символов <str>
+        """
+    dict_count = {}
+    new_str = ''
+    for i in our_str:
+        count = dict_count.get(i, 1)
+        dict_count.update({i: count + 1})
+        new_str = new_str + f'{i}_{count}'
     return new_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
