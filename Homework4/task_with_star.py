@@ -12,7 +12,28 @@
 # 4974 --> 7974
 
 def max_division_by_3(num):
-    # Здесь нужно написать код
+    sum_num = 0
+    list_digits = []
+    origin_num = num
+
+    while True:  # Эта часть кода занимается раскладыванием чисел  по разрядам и получает сумму начального числа
+        last_num = num % 10
+        list_digits.append(last_num)
+        sum_num += last_num
+        num = num // 10
+        if num == 0:
+            break
+    max_rank = len(list_digits) - 1  # Максимальная степень 10ки
+    new_num = 0
+    for index, digit_i in enumerate(reversed(list_digits)):  # Итерируемся по числам, по разрядам начиная со старшего
+        sum_without_digit = sum_num - digit_i  # Сумма числа без учета digit_i
+        for i in reversed(range(10)):  # Подбираем замену digit_i начиная с 9ти и по нисходящему до 0
+            new_sum = sum_without_digit + i  # Потенциальное число, в котором digit_i заменненое на i
+            if new_sum % 3 == 0:  # Сумма чисел, входящих в число должна делится на 3
+                right_num = origin_num + (i - digit_i) * 10 ** (max_rank - index)  # Вычисляем наше число
+                if right_num > new_num:
+                    new_num = right_num
+                    break
     return new_num
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
