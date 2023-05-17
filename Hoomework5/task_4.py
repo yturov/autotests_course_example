@@ -16,10 +16,10 @@
 def scrabble(word):
     """
         Подсчет кол-во очков (points), полученное за слово (word)
-        :param word: входное слово <str>
-        :return: количество очков <int>
+        :param word: входное слово
+        :return: количество очков
         """
-    list_letters = {1: "авеёинорст",
+    dic_letters = {1: "авеёинорст",
                     2: "дклмпу",
                     3: "бгья",
                     4: "йы",
@@ -30,7 +30,7 @@ def scrabble(word):
 
     points = 0
     for i in word:
-        for k, v in list_letters.items():
+        for k, v in dic_letters.items():
             if i in v:
                 points = points + k
     return points
