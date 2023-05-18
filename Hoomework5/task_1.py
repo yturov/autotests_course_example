@@ -7,7 +7,15 @@
 
 
 def letter_stat(our_str):
-    # Здесь нужно написать код
+    """
+        Считает количество повторений букв в строке.
+        :param our_str: строка для преобразования
+        :return: словарь, созданный из строки
+        """
+    letters_dict = {}  # Создаем пустой словарь
+    for letter in our_str:
+        if letter not in letters_dict:
+            letters_dict[letter] = our_str.count(letter)
     return letters_dict
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

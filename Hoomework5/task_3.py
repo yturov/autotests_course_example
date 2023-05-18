@@ -19,7 +19,19 @@
 
 
 def everything_for_your_cat(cats_data):
-    # Здесь нужно написать код
+    """
+        Форматирует имена животных и покупателей в одну строку
+        :param cats_data:  данные, в старом формате
+        :return: Данные о владельце и его питомацах в новом формате
+        """
+    dict_ = {}
+    our_str = ""
+    for i in cats_data:
+        fio_str, cat_str = f"{i[2]} {i[3]}:", f" {i[0]}, {i[1]};"
+        cur_str = dict_.get(fio_str) + cat_str if dict_.get(fio_str) else cat_str
+        dict_.update({fio_str: cur_str})
+    for key, val in dict_.items():
+        our_str = our_str + key + val[:-1] + "\n"
     return our_str
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
