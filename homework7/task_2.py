@@ -29,13 +29,25 @@ class PersonInfo:
         self.subdivision = subdivision
 
     def short_name(self):
+        """
+        Преобразует строку с именем и фамилией в строку в формате "Фамилия И"
+        :return:
+        """
         fio = self.name.split()
         return f"{fio[1]} {fio[0][0]}."
 
     def path_deps(self):
+        """
+        Возвращает путь, где работает сотрудник
+        :return:
+        """
         return " --> ".join(self.subdivision)
 
     def new_salary(self):
+        """
+        Высчитывает зарплату по формуле
+        :return:
+        """
         dict_chars = {}
         for subdivision_i in self.subdivision:
             for char in subdivision_i:

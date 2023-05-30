@@ -19,15 +19,27 @@ class Segment:
         self.y2 = point2[1]
 
     def length(self):
+        """
+        Возвращает длину нашего отрезка, с округлением до 2 знаков после запятой
+        :return:
+        """
         return round(((self.x2 - self.x1)**2 + (self.y2 - self.y1)**2)**0.5, 2)
 
     def x_axis_intersection(self):
+        """
+        Вычисляет  пересекает ли отрезок ось абцисс
+        :return:
+        """
         if self.x1 * self.x2 <= 0:
             return True
         else:
             return False
 
     def y_axis_intersection(self):
+        """
+        Вычисляет  пересекает ли отрезок ось ординат
+        :return:
+        """
         if self.y1 * self.y2 <= 0:
             return True
         else:

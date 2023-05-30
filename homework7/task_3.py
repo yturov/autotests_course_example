@@ -34,6 +34,9 @@ class PublicTransport:
 
     @property
     def info(self):
+        """
+        Выводит на печать информацию об автомобиле
+        """
         print(self.brand, self.color, self.year, self._engine_power)
 
 
@@ -46,10 +49,18 @@ class Bus(PublicTransport):
 
     @property
     def park(self):
+        """
+        Выводит номер парка приписки автобуса
+        :return:
+        """
         return self.__park
 
     @park.setter
     def park(self, value):
+        """
+        Проверяет номер парка приписки автобуса на вхождение в определенный диапозон значений
+        :param value:
+        """
         if 1000 <= value <= 9999:
             self.__park = value
         else:
@@ -65,6 +76,10 @@ class Tram(PublicTransport):
 
     @property
     def how_long(self):
+        """
+        Вычисляет время прохождения маршрута по формуле
+        :return:
+        """
         return self.max_speed / (4 * self.path)
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
