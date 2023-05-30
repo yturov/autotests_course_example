@@ -51,7 +51,6 @@ class Bus(PublicTransport):
     def park(self):
         """
         Выводит номер парка приписки автобуса
-        :return:
         """
         return self.__park
 
@@ -59,7 +58,6 @@ class Bus(PublicTransport):
     def park(self, value):
         """
         Проверяет номер парка приписки автобуса на вхождение в определенный диапозон значений
-        :param value:
         """
         if 1000 <= value <= 9999:
             self.__park = value
@@ -78,7 +76,6 @@ class Tram(PublicTransport):
     def how_long(self):
         """
         Вычисляет время прохождения маршрута по формуле
-        :return:
         """
         return self.max_speed / (4 * self.path)
 

@@ -16,7 +16,6 @@ class RomanNums:
     def from_roman(self):
         """
         Переводит римскую запись числа в арабскую
-        :return:
         """
         out, mx = 0, 0
         for cur in map(lambda c: {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}[c],
@@ -27,7 +26,6 @@ class RomanNums:
     def is_palindrome(self):
         """
         Определяет, является ли арабское число палиндромом
-        :return:
         """
         return str(self.from_roman()) == str(self.from_roman())[::-1]
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
