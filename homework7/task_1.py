@@ -10,7 +10,37 @@
 # Segment((-2, -3), (-4, -5)).y_axis_intersection() --> False
 
 # Здесь пишем код
+class Segment:
+    def __init__(self, point1, point2):
+        assert len(point1) == len(point2), "Количество координат х должно соответствовать количеству координат у"
+        self.x1 = point1[0]
+        self.y1 = point1[1]
+        self.x2 = point2[0]
+        self.y2 = point2[1]
 
+    def length(self):
+        """
+        Возвращает длину нашего отрезка, с округлением до 2 знаков после запятой
+        """
+        return round(((self.x2 - self.x1)**2 + (self.y2 - self.y1)**2)**0.5, 2)
+
+    def x_axis_intersection(self):
+        """
+        Вычисляет  пересекает ли отрезок ось абцисс
+        """
+        if self.x1 * self.x2 <= 0:
+            return True
+        else:
+            return False
+
+    def y_axis_intersection(self):
+        """
+        Вычисляет  пересекает ли отрезок ось ординат
+        """
+        if self.y1 * self.y2 <= 0:
+            return True
+        else:
+            return False
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
