@@ -9,7 +9,25 @@
 # RomanNums('CMXCIX').is_palindrome() --> True
 
 # Здесь пишем код
+class RomanNums:
+    def __init__(self, num_str):
+        self.num_str = num_str
 
+    def from_roman(self):
+        """
+        Переводит римскую запись числа в арабскую
+        """
+        out, mx = 0, 0
+        for cur in map(lambda c: {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}[c],
+                       self.num_str[::-1]):
+            out, mx = (out + cur, cur) if cur >= mx else (out-cur, mx)
+        return out
+
+    def is_palindrome(self):
+        """
+        Определяет, является ли арабское число палиндромом
+        """
+        return str(self.from_roman()) == str(self.from_roman())[::-1]
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 

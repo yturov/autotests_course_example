@@ -22,7 +22,39 @@
 # 1337*32*9 = 385056
 
 # Здесь пишем код
+class PersonInfo:
+    def __init__(self, name, age, *subdivision):
+        self.name = name
+        self.age = age
+        self.subdivision = subdivision
 
+    def short_name(self):
+        """
+        Преобразует строку с именем и фамилией в строку в формате "Фамилия И"
+        """
+        fio = self.name.split()
+        return f"{fio[1]} {fio[0][0]}."
+
+    def path_deps(self):
+        """
+        Возвращает путь, где работает сотрудник
+        """
+        return " --> ".join(self.subdivision)
+
+    def new_salary(self):
+        """
+        Высчитывает зарплату по формуле
+        """
+        dict_chars = {}
+        for subdivision_i in self.subdivision:
+            for char in subdivision_i:
+                if dict_chars.get(char):
+                    dict_chars[char] += 1
+                else:
+                    dict_chars[char] = 1
+                sort_data = sorted(dict_chars.values(), key=lambda v: v, reverse=True)
+        zp = 1337 * self.age * sum(sort_data[:3])
+        return zp
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
