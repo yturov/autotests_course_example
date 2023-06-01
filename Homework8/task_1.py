@@ -22,15 +22,15 @@ def treatment_sum(our_tuple):
     """
     Функция обрабатывает исключения
     """
+    if len(our_tuple) > 2:
+        raise Exception('Много данных')
     try:
-        if len(our_tuple) > 2:
-            raise Exception('Много данных')
         res = our_tuple[0] + our_tuple[1]
-        return res
     except IndexError:
         return 'Недостаточно данных'
     except TypeError:
         return 'Нельзя сложить эти данные'
+    return res
 
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

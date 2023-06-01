@@ -18,6 +18,7 @@ import unittest  # Не удалять
 
 # Здесь пишем код
 class Trigon:
+    """ Проверка сторон треуголника на корректность """
     def __init__(self, *args):
         if len(args) != 3:
             raise IndexError(f"Передано {len(args)} аргументов, а ожидается 3")
