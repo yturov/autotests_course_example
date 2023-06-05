@@ -16,7 +16,22 @@
 
 import unittest  # Не удалять
 
+
 # Здесь пишем код
+def treatment_sum(our_tuple):
+    """
+    Функция обрабатывает исключения
+    """
+    try:
+        res = our_tuple[0] + our_tuple[1]
+    except IndexError:
+        return 'Недостаточно данных'
+    except TypeError:
+        return 'Нельзя сложить эти данные'
+    if len(our_tuple) > 2:
+        raise Exception('Много данных')
+    return res
+
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 

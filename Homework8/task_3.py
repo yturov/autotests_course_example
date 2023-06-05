@@ -8,7 +8,16 @@
 
 
 # Здесь пишем код
+def segment(p1, p2):
+    """
+    Проверяет полученные данные на корректность
+    """
+    try:
+        summa = p1[0] + p1[1] + p2[0] + p2[1]
+    except Exception as e:
+        return e.args[0][::-1]
 
+    return summa
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
