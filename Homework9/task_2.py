@@ -32,5 +32,64 @@
 
 
 import datetime
+import time
+
 
 # Здесь пишем код
+
+def func_log(file_log='log.txt'):
+    """
+    Принимает файл для логгирования, по умолчанию пишет log.txt.
+    """
+
+    def logging(func):
+        """
+        Создает декорирующую функцию
+        """
+
+        def wrapper():
+            """
+            Обертывает функцию func
+            """
+            data = datetime.datetime.now()
+            time_str = data.strftime("%d.%m %H:%M:%S")
+            with open(file_log, mode='a') as f:
+                f.write(f'{func.__name__} вызвана {time_str}\n')
+            return func()
+
+        wrapper.__name__ = func.__name__
+        wrapper.__doc__ = func.__doc__
+        return wrapper
+
+    return logging
+
+
+@func_log()
+def func1():
+    """
+    Для тестирования документации func1
+    """
+    time.sleep(3)
+
+
+@func_log(file_log='func2.txt')
+def func2():
+    """
+    Для тестирования func2
+    """
+    time.sleep(5)
+
+
+def func3():
+    """
+    Для тестирования документации func3
+    """
+    time.sleep(5)
+
+
+help(func3)
+help(func1)
+
+func1()
+func2()
+func1()
