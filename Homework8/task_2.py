@@ -17,7 +17,28 @@ import unittest  # Не удалять
 
 
 # Здесь пишем код
+class Trigon:
+    """ Проверка сторон треуголника на корректность """
+    def __init__(self, *args):
+        if len(args) != 3:
+            raise IndexError(f"Передано {len(args)} аргументов, а ожидается 3")
+        if all([isinstance(number, (int, float)) for number in args]):  # Все стороны треугольника должны быть либо
+            # int либо float
+            if any([number <= 0 for number in args]):  # Если хотя бы одно из чисел меньше нуля то any вернет true
+                raise ValueError('Стороны должны быть положительными')
+            else:
+                a = args[0]
+                b = args[1]
+                c = args[2]
+                if a + b > c or a + c > b or b + c > a:
+                    self.a = a
+                    self.b = b
+                    self.c = c
+                else:
+                    raise Exception("Не треугольник")
 
+        else:
+            raise TypeError('Стороны должны быть числами')
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
