@@ -4,7 +4,11 @@
 
 
 # Здесь пишем код
-
+with open('test_file/task1_data.txt', mode='r', encoding='utf-8') as f_start:
+    with open('test_file/task1_answer.txt', mode='w', encoding='utf-8') as f_finish:
+        for line in f_start:
+            line_without_digits = "".join(i for i in line if not i.isdigit())
+            f_finish.write(line_without_digits)
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
 
