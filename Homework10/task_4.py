@@ -4,3 +4,26 @@
 
 import pytest
 
+@pytest.mark.usefixtures("class_fixture")
+class Test:
+
+    def test_01(self):
+        """
+        проверка сложения
+        """
+        assert 1 + 1 == 2, "проверка сложения"
+
+    def test_02(self):
+        """
+        проверка логики
+        """
+        a = True
+        b = False
+        assert a and b == b, "проверка логики"
+
+    def test_03(self, delta_time_test):
+        """
+        проверка
+        """
+
+        assert True or (1 / 0), "обнаружено лишнее действие"
